@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curaçao 2026 · XXV Turma de Medicina da UEL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#0d7e8f;
+    --sea-deep:#0a4f5c;
+    --aqua:#27b3c2;
+    --aqua-light:#8fe0e6;
+    --sand:#fbf4e6;
+    --sand-deep:#f3e6cc;
+    --coral:#e9633c;
+    --coral-soft:#f0916b;
+    --sun:#f4b50a;
+    --ink:#0a2730;
+    --ink-soft:#3a5760;
+    --white:#fffdf8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  .mag{max-width:760px;margin:0 auto;background:var(--sand);position:relative;}
+
+  /* ---------- type ---------- */
+  .eyebrow{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.32em;font-size:.7rem;font-weight:500;}
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.04;font-weight:900;}
+  .serif-it{font-family:'Fraunces',serif;font-style:italic;font-weight:500;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    position:relative;min-height:100svh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #cdeff2 0%, rgba(205,239,242,0) 55%),
+      linear-gradient(180deg,#aee6ec 0%, #4cc3cf 42%, #0d7e8f 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    overflow:hidden;
+  }
+  .sun{
+    position:absolute;top:8%;right:14%;width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle at 40% 40%,#fff4cf,#f4b50a 70%);
+    box-shadow:0 0 70px 24px rgba(244,181,10,.45);
+    animation:floatSun 9s ease-in-out infinite;
+  }
+  @keyframes floatSun{50%{transform:translateY(-12px);}}
+  .gulls{position:absolute;top:22%;left:10%;opacity:.55;}
+  .gull{font-family:'Fraunces',serif;color:#fff;font-size:1rem;display:inline-block;margin-right:14px;}
+  .cover-inner{position:relative;z-index:3;padding:0 28px 0;}
+  .cover .eyebrow{color:#063b44;margin-bottom:14px;
+    opacity:0;animation:rise .9s .15s forwards cubic-bezier(.2,.7,.2,1);}
+  .cover h1{
+    color:var(--white);font-size:clamp(3.4rem,16vw,6.6rem);letter-spacing:-.01em;
+    text-shadow:0 6px 30px rgba(6,59,68,.35);
+    opacity:0;animation:rise 1s .3s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .cover h1 .sm{display:block;font-size:.32em;font-weight:600;letter-spacing:.02em;font-style:italic;color:#eafbfc;margin-top:.2em;}
+  .cover-sub{
+    color:#eafbfc;font-size:1.05rem;margin-top:18px;max-width:30ch;
+    opacity:0;animation:rise 1s .5s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .cover-dates{
+    margin-top:22px;display:inline-flex;align-items:center;gap:12px;color:var(--white);
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;
+    opacity:0;animation:rise 1s .7s forwards cubic-bezier(.2,.7,.2,1);
+  }
+  .cover-dates .dot{width:6px;height:6px;border-radius:50%;background:var(--sun);}
+  @keyframes rise{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+
+  /* colorful Willemstad facades along the cover bottom */
+  .facade-wrap{position:relative;z-index:2;margin-top:34px;}
+  .waves{display:block;width:100%;height:auto;}
+  .facades{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:2px;padding:0 14px;margin-bottom:-1px;}
+  .house{width:100%;max-width:62px;flex:1;position:relative;}
+  .house .body{height:70px;border-radius:3px 3px 0 0;position:relative;box-shadow:inset 0 -3px 0 rgba(0,0,0,.06);}
+  .house .gable{position:absolute;top:-15px;left:0;width:100%;height:16px;}
+  .house .win{position:absolute;width:26%;height:20px;top:14px;border-radius:2px;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.05);}
+  .house .win.l{left:18%;} .house .win.r{right:18%;}
+
+  /* ---------- general section ---------- */
+  section{padding:64px 28px;position:relative;}
+  .sec-label{color:var(--coral);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+  .sec-label::before{content:"";width:30px;height:2px;background:var(--coral);}
+
+  /* editorial letter */
+  .letter{background:var(--white);}
+  .letter h2{font-size:clamp(2rem,7vw,2.9rem);color:var(--ink);margin-bottom:24px;}
+  .letter p{margin-bottom:18px;color:var(--ink-soft);font-size:1.06rem;}
+  .letter .lead::first-letter{
+    font-family:'Fraunces',serif;font-weight:900;float:left;font-size:3.5rem;line-height:.78;
+    padding:6px 12px 0 0;color:var(--coral);
+  }
+  .pull{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:1.5rem;line-height:1.3;color:var(--sea);
+    border-left:3px solid var(--sun);padding:6px 0 6px 22px;margin:30px 0;
+  }
+  .signoff{font-family:'Fraunces',serif;font-style:italic;color:var(--ink);font-size:1.15rem;}
+
+  /* kits */
+  .kits{background:linear-gradient(180deg,var(--sea-deep),var(--sea));color:var(--white);}
+  .kits .sec-label{color:var(--sun);} .kits .sec-label::before{background:var(--sun);}
+  .kits h2{color:var(--white);font-size:clamp(1.8rem,6vw,2.5rem);margin-bottom:8px;}
+  .kits .where{color:var(--aqua-light);margin-bottom:26px;font-size:1.02rem;}
+  .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;}
+  .kit-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    border-radius:14px;padding:16px 16px;display:flex;gap:12px;align-items:center;backdrop-filter:blur(4px);}
+  .kit-item .q{font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--sun);line-height:1;}
+  .kit-item .t{font-size:.92rem;line-height:1.3;color:#eafbfc;}
+  .price{display:flex;align-items:baseline;gap:10px;border-top:1px solid rgba(255,255,255,.2);padding-top:20px;}
+  .price .lbl{text-transform:uppercase;letter-spacing:.22em;font-size:.7rem;color:var(--aqua-light);}
+  .price .val{font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--white);}
+  .price .per{font-size:.85rem;color:var(--aqua-light);}
+
+  /* itinerary intro */
+  .roteiro-head{text-align:center;background:var(--sand);padding-bottom:20px;}
+  .roteiro-head h2{font-size:clamp(2.4rem,9vw,3.6rem);color:var(--sea);}
+  .roteiro-head p{color:var(--ink-soft);margin-top:10px;}
+
+  /* day cards */
+  .day{
+    background:var(--white);border-radius:22px;padding:30px 26px;margin-bottom:22px;
+    box-shadow:0 18px 40px -28px rgba(10,39,48,.4);position:relative;overflow:hidden;
+    border:1px solid var(--sand-deep);
+  }
+  .day::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;
+    background:linear-gradient(90deg,var(--aqua),var(--sea));}
+  .day-top{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .day-num{font-family:'Fraunces',serif;font-weight:900;font-size:2.6rem;color:var(--sand-deep);line-height:.85;}
+  .day-date{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--coral);font-weight:500;}
+  .day h3{font-size:1.5rem;color:var(--ink);margin:2px 0 14px;}
+  .day p{color:var(--ink-soft);margin-bottom:14px;font-size:1rem;}
+  .sched{list-style:none;margin:0 0 4px;}
+  .sched li{display:flex;gap:14px;padding:9px 0;border-top:1px dashed var(--sand-deep);}
+  .sched li:first-child{border-top:none;}
+  .sched .time{font-family:'Fraunces',serif;font-weight:600;color:var(--sea);min-width:62px;font-size:.98rem;white-space:nowrap;}
+  .sched .what{color:var(--ink-soft);font-size:.98rem;}
+  .sched .what b{color:var(--ink);font-weight:600;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .tag{background:var(--sand);border:1px solid var(--sand-deep);color:var(--ink-soft);
+    font-size:.82rem;padding:5px 12px;border-radius:30px;}
+  .dress{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:var(--sand);
+    border-radius:30px;padding:7px 16px;font-size:.86rem;color:var(--ink-soft);}
+  .swatch{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.12);}
+  .sw-white{background:#fff;} .sw-blue{background:var(--aqua);}
+
+  /* feature day (Klein) */
+  .day.feature{background:linear-gradient(160deg,#0d7e8f,#0a4f5c);color:var(--white);border:none;}
+  .day.feature::before{background:linear-gradient(90deg,var(--sun),var(--coral));}
+  .day.feature .day-num{color:rgba(255,255,255,.22);}
+  .day.feature h3{color:var(--white);}
+  .day.feature p{color:#dff6f8;}
+  .day.feature .day-date{color:var(--sun);}
+  .day.feature .tag{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#eafbfc;}
+
+  /* 40 anos finale */
+  .finale{
+    background:
+      radial-gradient(100% 60% at 50% 0%, rgba(244,181,10,.22), rgba(244,181,10,0) 60%),
+      linear-gradient(180deg,var(--ink),#05323b);
+    color:var(--white);text-align:center;
+  }
+  .finale .eyebrow{color:var(--sun);}
+  .finale .big{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(3.6rem,20vw,7rem);
+    line-height:.9;margin:14px 0;background:linear-gradient(90deg,var(--sun),var(--coral-soft));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .finale .yr{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--aqua-light);}
+  .finale p{color:#cfe6e9;max-width:46ch;margin:18px auto;font-size:1.05rem;}
+  .finale .vow{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;color:var(--white);margin:26px auto 8px;}
+  .finale .none{font-family:'Fraunces',serif;font-weight:900;letter-spacing:.04em;font-size:1.5rem;color:var(--sun);margin-top:10px;}
+
+  /* closing */
+  .closing{background:var(--sea);color:var(--white);text-align:center;padding:70px 28px 90px;}
+  .closing h2{font-size:clamp(2.6rem,12vw,4.4rem);color:var(--white);line-height:.95;}
+  .closing .rumo{display:block;font-style:italic;font-weight:500;font-size:.5em;color:var(--sun);margin-bottom:6px;}
+  .closing .meta{margin-top:24px;color:#dff6f8;line-height:1.9;}
+  .closing .meta strong{font-family:'Fraunces',serif;font-weight:600;color:#fff;display:block;letter-spacing:.04em;}
+  .heart{color:var(--coral-soft);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:480px){
+    section{padding:52px 22px;}
+    .day{padding:26px 20px;}
+    .kit-grid{grid-template-columns:1fr;}
+    .sun{width:88px;height:88px;top:7%;right:10%;}
+  }
+</style>
+</head>
+<body>
+<div class="mag">
+
+  <!-- ============ COVER ============ -->
+  <header class="cover">
+    <div class="sun"></div>
+    <div class="gulls"><span class="gull">⌒</span><span class="gull">⌒</span><span class="gull">⌒</span></div>
+    <div class="cover-inner">
+      <p class="eyebrow">XXV Turma de Medicina · UEL · 39 anos de formados</p>
+      <h1>Curaçao<span class="sm">o reencontro · 2026</span></h1>
+      <p class="cover-sub">Uma semana no Caribe para celebrar quase quatro décadas de amizade.</p>
+      <div class="cover-dates"><span class="dot"></span>05 a 12 de setembro de 2026<span class="dot"></span></div>
+    </div>
+
+    <div class="facade-wrap">
+      <div class="facades">
+        <!-- candy-colored Willemstad houses -->
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 8 Q30 -8 60 8 L60 16 Z" fill="#e9633c"/></svg><div class="body" style="background:#e9633c"><span class="win l"></span><span class="win r"></span></div></div>
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 6 L30 -4 L60 6 L60 16 Z" fill="#f4b50a"/></svg><div class="body" style="background:#f4b50a"><span class="win l"></span><span class="win r"></span></div></div>
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 8 Q30 -8 60 8 L60 16 Z" fill="#2f97a3"/></svg><div class="body" style="background:#2f97a3"><span class="win l"></span><span class="win r"></span></div></div>
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 6 L30 -4 L60 6 L60 16 Z" fill="#f0916b"/></svg><div class="body" style="background:#f0916b"><span class="win l"></span><span class="win r"></span></div></div>
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 8 Q30 -8 60 8 L60 16 Z" fill="#5aa9b0"/></svg><div class="body" style="background:#5aa9b0"><span class="win l"></span><span class="win r"></span></div></div>
+        <div class="house"><svg class="gable" viewBox="0 0 60 16" preserveAspectRatio="none"><path d="M0 16 L0 6 L30 -4 L60 6 L60 16 Z" fill="#e7a92e"/></svg><div class="body" style="background:#e7a92e"><span class="win l"></span><span class="win r"></span></div></div>
+      </div>
+      <svg class="waves" viewBox="0 0 760 80" preserveAspectRatio="none">
+        <path d="M0 40 C120 10 220 70 380 40 C540 10 640 70 760 40 L760 80 L0 80 Z" fill="#0a4f5c" opacity=".55"/>
+        <path d="M0 54 C140 28 240 78 380 54 C520 30 640 78 760 54 L760 80 L0 80 Z" fill="#0a4f5c"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ============ LETTER ============ -->
+  <section class="letter reveal">
+    <p class="sec-label eyebrow">Editorial</p>
+    <h2>Uma história que continua sendo escrita</h2>
+    <p class="lead">Em 1987, recebíamos nossos diplomas — cheios de sonhos, projetos e expectativas. De lá para cá, seguimos caminhos diferentes: construímos carreiras, formamos famílias e atravessamos conquistas, desafios, alegrias e aprendizados.</p>
+    <p>Mas uma coisa permaneceu intacta ao longo destes 39 anos: a amizade que nasceu na XXV Turma de Medicina da UEL.</p>
+    <p class="pull">Não vamos apenas viajar. Vamos celebrar uma amizade que resistiu ao tempo.</p>
+    <p>Por isso, em setembro de 2026, voltamos a nos encontrar — não apenas para conhecer um dos lugares mais bonitos do Caribe, mas para brindar a tudo o que vivemos juntos.</p>
+    <p class="signoff">Sejam todos muito bem-vindos a Curaçao. 💙</p>
+  </section>
+
+  <!-- ============ KITS ============ -->
+  <section class="kits reveal">
+    <p class="sec-label eyebrow">Antes do embarque</p>
+    <h2>O encontro começa em São Paulo</h2>
+    <p class="where">No Aeroporto de São Paulo faremos a entrega oficial dos Kits Curaçao 2026 — o reencontro começa antes mesmo de decolar.</p>
+    <div class="kit-grid">
+      <div class="kit-item"><span class="q">01</span><span class="t">Camiseta UV<br>manga curta</span></div>
+      <div class="kit-item"><span class="q">02</span><span class="t">Camisetas UV<br>manga longa</span></div>
+      <div class="kit-item"><span class="q">01</span><span class="t">Ecobag<br>personalizada</span></div>
+      <div class="kit-item"><span class="q">01</span><span class="t">Boné<br>personalizado</span></div>
+      <div class="kit-item"><span class="q">01</span><span class="t">Chapéu<br>bucket</span></div>
+      <div class="kit-item"><span class="q">01</span><span class="t">Taça térmica<br>personalizada</span></div>
+    </div>
+    <div class="price"><span class="lbl">Valor por participante</span><span class="val">R$ 410,50</span></div>
+  </section>
+
+  <!-- ============ ROTEIRO ============ -->
+  <section class="roteiro-head reveal">
+    <p class="eyebrow" style="color:var(--coral);letter-spacing:.3em;">Nosso roteiro</p>
+    <h2>Oito dias no paraíso</h2>
+    <p>De 05 a 12 de setembro · dia a dia em Curaçao</p>
+  </section>
+
+  <section style="padding-top:8px;">
+
+    <!-- 05 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">05</span><span class="day-date">Sexta · Setembro</span></div>
+      <h3>Chegada e reencontro</h3>
+      <p>Ao longo do dia, todos chegam ao resort: tempo para acomodação, descanso e os primeiros abraços.</p>
+      <ul class="sched">
+        <li><span class="time">16h00</span><span class="what">Chegada da maioria do grupo. Encontro informal na <b>piscina</b> — primeiras fotos e primeiras histórias.</span></li>
+        <li><span class="time">19h30</span><span class="what"><b>Jantar de boas-vindas.</b> O primeiro grande encontro da semana: brindar, celebrar e agradecer por estarmos juntos de novo.</span></li>
+      </ul>
+      <div class="dress"><span class="swatch sw-white"></span><span class="swatch sw-blue"></span>Dress code: branco & azul Curaçao</div>
+    </div>
+
+    <!-- 06 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">06</span><span class="day-date">Sábado · Setembro</span></div>
+      <h3>Dia da amizade</h3>
+      <p>Sem despertador, sem horários, sem compromissos. Apenas um dia para aproveitar o resort, a praia, as piscinas e — principalmente — a companhia dos amigos.</p>
+      <div class="tags"><span class="tag">🏖️ Praia</span><span class="tag">🍹 Piscina</span><span class="tag">☀️ Sol</span><span class="tag">😂 Risadas de quatro décadas</span></div>
+    </div>
+
+    <!-- 07 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">07</span><span class="day-date">Domingo · Setembro</span></div>
+      <h3>Aniversário da Abigail</h3>
+      <p>Hoje celebramos uma amiga muito especial — com um passeio divertido pelos pontos históricos e culturais de Curaçao.</p>
+      <ul class="sched">
+        <li><span class="time">08h30</span><span class="what"><b>Tuk Tuk · Grupo 1</b></span></li>
+        <li><span class="time">10h30</span><span class="what"><b>Tuk Tuk · Grupo 2</b></span></li>
+        <li><span class="time">13h00</span><span class="what"><b>Almoço da turma</b>, seguido de tarde livre — praia, piscina, compras e fotos.</span></li>
+        <li><span class="time">Noite</span><span class="what"><b>Happy Birthday, Gail!</b> Brinde coletivo, bolo, música e rock entre amigos.</span></li>
+      </ul>
+    </div>
+
+    <!-- 08 feature -->
+    <div class="day feature reveal">
+      <div class="day-top"><span class="day-num">08</span><span class="day-date">Segunda · Setembro</span></div>
+      <h3>Klein Curaçao</h3>
+      <p>Um dos dias mais aguardados da viagem. A bordo do iate <span class="serif-it">Miss Ann</span>, rumo a uma ilha de mar azul-turquesa, areia branca e paisagens inesquecíveis.</p>
+      <div class="tags"><span class="tag">🐠 Snorkeling</span><span class="tag">🌊 Banho de mar</span><span class="tag">📸 Foto oficial no iate</span><span class="tag">🍹 Puro relax</span></div>
+      <p style="margin-top:14px;margin-bottom:0;">Todos com a camiseta oficial da turma para o registro do dia.</p>
+    </div>
+
+    <!-- 09 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">09</span><span class="day-date">Terça · Setembro</span></div>
+      <h3>Dia livre no resort</h3>
+      <p>Um dia para desacelerar e criar novas memórias no seu ritmo.</p>
+      <div class="tags"><span class="tag">💆 Spa</span><span class="tag">🎰 Cassino</span><span class="tag">🌅 Happy hour</span><span class="tag">🏖️ Praia & piscina</span></div>
+      <ul class="sched" style="margin-top:14px;">
+        <li><span class="time">18h30</span><span class="what"><b>Foto oficial da XXV Turma</b> — um registro para a eternidade.</span></li>
+      </ul>
+      <div class="dress"><span class="swatch sw-white"></span>Dress code: branco total</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">10</span><span class="day-date">Quarta · Setembro</span></div>
+      <h3>As praias do norte</h3>
+      <p>Um dia para conhecer algumas das paisagens mais impressionantes da ilha, com almoço em restaurante típico local e retorno ao resort no fim da tarde.</p>
+      <div class="tags"><span class="tag">🌊 Playa Kalki</span><span class="tag">🌊 Playa Lagun</span><span class="tag">🌊 Playa Piskadó</span><span class="tag">🌊 Grote Knip</span><span class="tag">🌊 Kleine Knip</span></div>
+    </div>
+
+    <!-- 11 -->
+    <div class="day reveal">
+      <div class="day-top"><span class="day-num">11</span><span class="day-date">Quinta · Setembro</span></div>
+      <h3>Noite das memórias</h3>
+      <p>Nosso último jantar em Curaçao — mas não uma despedida. Porque a nossa turma nunca se despede: sempre encontra um motivo para se reencontrar.</p>
+      <ul class="sched">
+        <li><span class="time">Noite</span><span class="what"><b>Recepção, jantar especial e música.</b> Uma celebração à altura da nossa amizade.</span></li>
+      </ul>
+      <div class="dress"><span class="swatch sw-blue"></span><span class="swatch sw-white"></span>Dress code: azul Curaçao & branco</div>
+    </div>
+
+  </section>
+
+  <!-- ============ 40 ANOS ============ -->
+  <section class="finale reveal">
+    <p class="eyebrow">O grande momento da noite</p>
+    <p class="yr">Lançamento oficial</p>
+    <div class="big">40 anos</div>
+    <p>Em 2027 viveremos um marco que acontece uma única vez: <b>quatro décadas de Medicina, de amizade e de histórias compartilhadas.</b></p>
+    <p style="color:#fff;"><span class="serif-it" style="color:var(--sun);">A abertura oficial dos 40 anos será conduzida por Silvia Helena</span> — a que mais se dedica e se esforça para manter a turma sempre reunida.</p>
+    <p>Na Noite das Memórias faremos uma gravação especial para os colegas que não puderam estar em Curaçao — uma mensagem de carinho e, acima de tudo, um convite.</p>
+    <p>Queremos reunir cada colega. Queremos uma fotografia completa da nossa geração — os que estiveram desde o primeiro dia e os que, por qualquer motivo, andaram distantes. Todos fazem parte desta história.</p>
+    <p class="vow">Nosso compromisso: tornar o encontro dos 40 anos o maior, o mais emocionante e o mais memorável da nossa turma.</p>
+    <p class="none">E desta vez… ninguém pode ficar de fora.</p>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing reveal">
+    <p class="eyebrow" style="color:var(--aqua-light);letter-spacing:.3em;">12 de setembro · Retorno ao Brasil</p>
+    <h2 style="margin-top:14px;"><span class="rumo">Rumo aos</span>40 anos</h2>
+    <p class="meta" style="margin-top:18px;">Voltamos para casa levando novas fotografias, novas memórias e a certeza de que ainda temos muito para viver juntos.</p>
+    <p class="meta">
+      <strong>XXV Turma de Medicina da UEL</strong>
+      Curaçao · Setembro de 2026<br>
+      39 anos de amizade <span class="heart">·</span> 39 anos de história<br>
+      e o início da contagem regressiva.
+    </p>
+  </section>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
